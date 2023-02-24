@@ -8,9 +8,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config('SECRET_KEY')
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1','ec2-44-195-31-85.compute-1.amazonaws.com','44.195.31.85']
+ALLOWED_HOSTS = ['localhost','127.0.0.1','ec2-44-195-31-85.compute-1.amazonaws.com','44.195.31.85',]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
