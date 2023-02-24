@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block main %} 
+  <h1>Chegou uma nova entrega? Cadastre!</h1>
+  <p>Preencha os campos abaixo para cadastrar uma nova entrega.</p>
+  <div class="row">
+
+    <form action="{% url 'Entrega_nova' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-primary mt-3" type="submit" value="Incluir entrega">
+    </form>
+  </div>
+
+{% endblock %}

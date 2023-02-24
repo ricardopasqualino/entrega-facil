@@ -1,0 +1,15 @@
+{% extends 'resident/base-resident.html' %}
+{% load static %}
+
+{% block main %}
+  <h1>Cadastre um novo morador!</h1>
+  <p>Preencha os campos abaixo para cadastrar uma nova entrega.</p>
+  <div class="row">
+
+    <form action="{% url 'cta_criar_morador' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-primary mt-3" type="submit" value="Incluir morador">
+    </form>
+  </div>
+{% endblock %}

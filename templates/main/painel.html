@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="row mt-5">
+  <div class="col d-flex justify-content-start">
+    <h2>Relatório Operacional</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col shadow-sm m-3 bg-light border">
+        <p class="pt-4">Total de entregas RECEBIDAS</p>
+        <h1 class="pb-3">{{ entregas_total }}</h1>
+    </div>
+    <div class="col shadow-sm m-3 bg-danger text-white border">
+        <p class="pt-4">Total de entregas PENDENTES</p>
+        <h1 class="pb-4">{{ entregas_pendentes }}</h1>
+    </div>
+    <div class="col shadow-sm m-3 bg-success text-white border">
+        <p class="pt-4">Total de entregas RETIRADAS</p>
+        <h1 class="pb-4">{{ entregas_retiradas }}</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col mt-3 d-flex justify-content-start">
+        <h5>Entregas pendentes</h5>
+    </div>
+    <div class="row shadow-sm">
+        <table class="table mt-3"></
+            <thead>
+              <tr>
+                <th scope="col">OE</th>
+                <th scope="col">Atualização</th>
+                <th scope="col">Nota Fiscal</th>
+                <th scope="col">Casa/Apto</th>
+                <th scope="col">Local</th>
+                <th scope="col">Responsável</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for entregas in entregas %}
+              <tr>
+                <td>OE/{{ entregas.id }}</td>
+                <td>{{ entregas.data_entrada|date:'d/m/y - G:i' }}</td>
+                <td>{{ entregas.nota_fiscal }}</td>
+                <td>{{ entregas.morador }}</td>
+                <td>{{ entregas.modulo }}</td>
+                <td>{{ entregas.recebido_por }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    </div>
+</div>
+{% endblock %}

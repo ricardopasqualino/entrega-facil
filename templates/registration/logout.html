@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="row">
+    <div class="col">
+        <img src="https://img.icons8.com/ios-glyphs/90/000000/exit.png"/>
+        <h1 class="mt-3">Você encerrou o seu acesso</h1>
+        <p>Bom descanso e a Basson agradece pelo seu dia de trabalho.</p>
+        <a class="btn btn-primary-outline"  href="{% url 'Register' %}">Acesse novamente</a>
+    </div>
+</div>
+{% endblock %}

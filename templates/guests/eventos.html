@@ -1,0 +1,58 @@
+{% extends 'guests/base-guests.html' %}
+{% load static %}
+
+{% block main %}
+<div class="row">
+  <div class="col">
+    <h1>Eventos criados</h1>
+  </div>
+  <div class="col">
+    <a class="btn btn-primary float-right" href="{% url 'guests_criar_evento' %}">Criar Evento</a>
+  </div>
+</div>
+    <table class="table mt-3">
+        <thead>
+          <tr>
+            <th scope="col">Nome do Evento</th>
+            <th scope="col">Data do Evento</th>
+            <th scope="col">Qtd de pessoas</th>
+            <th scope="col">Qual o Local?</th>
+            <th scope="col">Aceite!</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for evento_dados in evento_dados %}
+            <tr>
+                <td>{{ evento_dados.nome_evento }}</td>
+                <td>{{ evento_dados.data_evento|date:'d/m/y - G:i' }}</td>
+                <td>{{ evento_dados.qtd_convidados }}</td>
+                <td>{{ evento_dados.local_eventos }}</td>
+                
+                <td class="text-align">
+                  {% if evento_dados.aceite_condicoes == True %}
+                  <spam>Sim</spam>
+                  {% else %}
+                  <spam>Não</spam>
+                  {% endif %}
+                </td>
+                
+                <td>
+                  <a href="{% url 'guests_atualizar_evento' evento_dados.id %}">
+                      <img src="https://img.icons8.com/ios-glyphs/24/000000/edit--v1.png" alt="Editar">
+                  </a>
+                </td>
+
+                <td>
+                  <a href="{% url 'guests_deletar_evento' evento_dados.id %}">
+                    <img src="https://img.icons8.com/ios-glyphs/30/000000/filled-trash.png" alt="Deletar">
+                  </a>
+                </td>
+              </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+{% endblock %}
+</body>
+</html>

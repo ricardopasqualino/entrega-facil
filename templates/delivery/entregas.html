@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="row mt-5">
+
+  <div class="col d-flex justify-content-start">
+    <h2>Entregas registradas</h2>
+  </div>
+
+  <div class="col">
+    <a class="btn btn-primary float-right" href="{% url 'Nova' %}">Nova</a>
+
+    <div class="dropdown mr-3 float-right">
+      <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Filtrar Entregas
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="#"><button class="dropdown-item" type="button">Hoje</button></a>
+        </li>
+        <li>
+          <a href=""><button class="dropdown-item" type="button">Pendentes</button></a>
+        </li>
+        <li>
+          <a href="#"><button class="dropdown-item" type="button">Atrasadas</button></a>
+        </li>
+      </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <table class="table mt-3">
+        <thead>
+          <tr>
+            <th scope="col">OE</th>
+            <th scope="col">NF / Identificador</th>
+            <th scope="col">Data de entrada</th>
+            <th scope="col">Data de retirada</th>
+            <th scope="col">Local</th>
+            <th scope="col">Casa/Apto</th>
+            <th scope="col">Responsável</th>
+            <th scope="col">Retirada?</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for entregas in entregas %}
+          <tr>
+            <td>OE/{{ entregas.id }}</td>
+            <td>{{ entregas.nota_fiscal }}</td>
+            <td>{{ entregas.data_entrada|date:'d/m/y - G:i' }}</td>
+            <td>
+              {% if entregas.status == False %}
+              {% else %}
+              {{ entregas.data_retirada|date:'d/m/y - G:i' }}
+              {% endif %}
+            </td>
+            <td>{{ entregas.modulo }}</td>
+            <td>{{ entregas.morador }}</td>
+            <td>{{ entregas.recebido_por.first_name }}</td>
+            <td>
+              {% if entregas.status == False %}
+              <a class="btn btn-danger btn-sm" href="{% url 'Atualizar_entrega' entregas.id %}" {{ entregas.status }}>Não</a>
+              {% else %}
+              <span class="btn btn-light btn-sm disabled">Sim</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

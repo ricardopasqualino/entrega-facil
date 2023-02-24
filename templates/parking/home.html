@@ -1,0 +1,14 @@
+{% extends 'parking/base-parking.html' %}
+{% load static %}
+
+{% block main %}
+<div class="row text-center">
+    <div class="col">
+        <img src="../static/parking_icon.png">
+        <h1>Gestão de vagas!</h1>
+        <p>As vagas disponíveis quando você mais precisa</p>
+        <a href="{% url 'parking_reservar_vagas' %}"><button type="button" class="btn btn-primary mt-3">Reservar Vaga</button></a>
+        <a href="{% url 'parking_consultar_vagas'  %}"><button type="button" class="btn btn-outline-primary mt-3">Criar Vaga</button></a>
+    </div>
+</div>
+{% endblock %}

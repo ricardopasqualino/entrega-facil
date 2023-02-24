@@ -1,0 +1,52 @@
+{% extends 'resident/base-resident.html' %}
+{% load static %}
+
+{% block main %}
+  <div class="row">
+    <div class="col d-flex justify-content-start">
+      <h2>Moradores cadastrados</h2>
+    </div>
+    <div class="col btn-sm d-flex justify-content-end">
+      <a href="{% url 'criar_morador' %}"><button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+        Novo
+      </button></a>
+    </div>
+  </div>
+
+    <table class="table mt-3">
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Sobrenome</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Condominio</th>
+            <th scope="col">Casa/Apto</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for morador in morador %}
+          <tr>
+            <td scope="col">{{ morador.nome }}</td>
+            <td scope="col">{{ morador.sobrenome }}</td>
+            <td scope="col">{{ morador.telefone }}</td>
+            <td scope="col">{{ morador.email }}</td>
+            <td scope="col">{{ morador.condominio }}</td>
+            <td scope="col">{{ morador.morador }}</td>
+            <td>
+              <a href="{% url 'atualizar_morador' morador.id %}">
+                <img src="https://img.icons8.com/ios-glyphs/24/000000/edit--v1.png" alt="Editar">
+              </a>
+          </td>
+          <td>
+            <a href="{% url 'remover_morador' morador.id %}">
+              <img src="https://img.icons8.com/ios-glyphs/30/000000/filled-trash.png" alt="Deletar">
+            </a>
+        </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+{% endblock %}

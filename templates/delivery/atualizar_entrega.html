@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block main %} 
+  <h1>O morador veio retirar a encomenda? Boa!</h1>
+  <p>Clique no status para atualizar e fechar a ordem!</p>
+  <div class="row">
+
+    <form action="{% url 'Atualizar_entrega' entrega.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-primary mt-3" type="submit" value="Incluir entrega">
+    </form>
+  </div>
+
+{% endblock %}

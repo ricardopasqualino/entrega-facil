@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="row">
+    <div class="col">
+        <h1>{{ user.first_name }} {{ user.last_name }} </h1>
+        <p>Data e criação da conta: {{ user.date_joined|date:'d/m/y - G:i' }}</p>
+        <p>Último Acesso: {{ user.last_login|date:'d/m/y - G:i' }}</p>
+        <p>E-mail: {{ user.email }}</p>
+        <p>usuário: {{ user.username }}</p>
+        <p>ID: #00000{{ user.id }}</p>
+        <p>Status da conta: {{ user.is_active }}</p>
+        <p>Mantenha os seus dados atualizados</p>
+    </div>
+</div>
+</body>
+{% endblock %}

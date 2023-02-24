@@ -1,0 +1,31 @@
+{% extends 'guests/base-guests.html' %}
+{% load static %}
+
+{% block main %}
+    <div class="row mt-5">
+      <div class="col-10">
+        <h1>Organize seus convidados por evento!</h1>
+        <p>Vai receber poucos amigos na sua casa? Libere ntecipadamente eles!</p>
+      </div>
+        <div class="col-2">
+          <div class="btn btn-primary float-right m-1">Criar Lista</div>
+        </div>
+    </div>
+
+    <table class="table mt-3">
+        <thead>
+          <tr>
+            <th scope="col">Nome da Lista</th>
+            <th scope="col">Convidados da Lista</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for listas in listas %}
+            <tr>
+                <td>{{ listas.nome_lista }}</td>
+                <td>{{ listas.convidados_lista }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+{% endblock %}

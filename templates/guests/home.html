@@ -1,0 +1,14 @@
+{% extends 'guests/base-guests.html' %}
+{% load static %}
+
+{% block main %}
+<div class="row text-center">
+    <div class="col">
+        <img src="../static/guest_icon.png">
+        <h1 class="title">Sistema de gestão de eventos</h1>
+        <p>Antecipe e simplifique a autorização de convidados no condominio</p>
+        <a href="{% url 'guests_criar_convidado' %}"><button type="button" class="btn btn-primary mt-3">Criar Convidado</button></a>
+        <a href="{% url 'guests_criar_evento'  %}"><button type="button" class="btn btn-outline-primary mt-3">Criar Evento</button></a>
+    </div>
+</div>
+{% endblock %}

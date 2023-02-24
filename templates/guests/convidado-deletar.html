@@ -1,0 +1,16 @@
+{% extends 'guests/base-guests.html' %}
+{% load static %}
+
+{% block main %}
+<div class="row">
+  <h1 class="text-center">Deseja deletar?</h1>
+  <p class="text-center">Deletar usuário.</p>
+  <div class="col text-center mt-3">
+    <form action="{% url 'guests_deletar_convidado' deletar_visitante.id %}" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-primary" type="submit">Deletar</button>
+    </form>
+  </div> 
+</div>  
+{% endblock %}

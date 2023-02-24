@@ -1,0 +1,17 @@
+{% extends 'resident/base-resident.html' %}
+{% load static %}
+
+{% block main %}
+<div class="container mt-5">
+    <div class="row text-center">
+        <div class="col">
+          <img src="../static/delivery_icon.png">
+          <h1 class="title"> Sistema de registro <br> de moradores!</h1>
+          <p>Para começar, clique em uma das opções abaixo:</p>
+          <a href="{% url 'criar_morador' %}"><button type="button" class="btn btn-primary mt-3">Cadastrar morador</button></a>
+          <a href="{% url 'moradores'  %}"><button type="button" class="btn btn-outline-primary mt-3">Consultar moradores</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

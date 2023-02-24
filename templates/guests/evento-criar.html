@@ -1,0 +1,16 @@
+{% extends 'guests/base-guests.html' %}
+{% load static %}
+
+{% block main %}
+<div class="row">
+  <h1 class="text-center">Criar novo evento</h1>
+  <p class="text-center">Use o formulário abaixo para criar novos eventos</p>
+  <div class="col text-center mt-3">
+    <form action="{% url 'guests_novo_evento' %}" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-primary" type="submit">Criar Evento</button>
+    </form>
+  </div> 
+</div>  
+{% endblock %}

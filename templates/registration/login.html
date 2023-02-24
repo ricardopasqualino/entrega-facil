@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    <div class="row justify-content-center">
+        <div class="col">
+
+            <!-- Mensagem de erro do form -->    
+            {% if form.errors %}
+                <p>Usuário ou senha inválido. Tente Novamente.</p>
+            {% endif %}
+            
+            <!-- Topo da página de login -->
+            <img src="https://img.icons8.com/material/96/000000/employee-card--v1.png"/>
+            <h1>Insira o nome e a sua senha</h1>
+            <p>Sempre acesse com a sua conta e nunca compartilhe a sua senha com o colega de trabalho.</p>
+
+        </div>
+
+        <!-- estrutura do formulário -->
+            <form class="form-group ustify-content-center" method="post" action="{% url 'Login' %}">
+    
+            {% csrf_token %}
+
+            <!-- Inclusão da item de usuário -->
+            <div class="form-group">
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Coloque seu nome" {{ form.username }}
+            </div>
+        
+                <!-- Inclusão do campo senha -->
+                <div class="form-group mt-2">
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Coloque sua senha" {{ form.password }}
+                </div>
+                <input class="btn btn-primary mt-3 p-2" type="submit" value="Acessar">
+            </div>
+    </form>
+    <a class="btn btn-outline-primary" href="{% url 'Password_reset' %}" >Recuperar sua senha</a>
+</div>
+{% endblock %}

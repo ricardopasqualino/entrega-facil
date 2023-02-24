@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua entrega Chegou!</title>
+</head>
+<body>
+    <h1>Você tem uma entrega na portaria</h1>
+    <p>Sua entrega de número {{ entregas.id }} está te espperando na portaria</p>
+
+        <p>Data e Hora da chegada: {{ entregas.data_entrada }}</p>
+        <p>Número da Casa: {{ entregas.casa }}</p>
+        <p>Número da Nota Fiscal: {{ entregas.nota_fiscal }}</p>
+        <p>Nome do Morador: {{ entregas.casa.moradores }}</p>
+        <p>Recibido por: {{ entregas.recebido_por }}</p
+</body>
+</html>

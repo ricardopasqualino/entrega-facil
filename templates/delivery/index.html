@@ -1,0 +1,18 @@
+
+{% extends 'base.html' %}
+
+{% block main %} 
+<div class="container mt-5">
+  <div class="row text-center">
+      <div class="col">
+        <img src="../static/delivery_icon.png">
+        <h1 class="title"> Sistema de registro <br> de entregas!</h1>
+        <p>Para começar, clique em uma das opções abaixo:</p>
+        <a href="{% url 'Nova' %}"><button type="button" class="btn btn-primary mt-3">Cadastrar entrega</button></a>
+        <a href="{% url 'Entregas'  %}"><button type="button" class="btn btn-outline-primary mt-3">Consultar entregas</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

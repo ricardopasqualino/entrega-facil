@@ -1,0 +1,48 @@
+{% extends 'main/base-main.html' %}
+{% load static %}
+
+{% block main %} 
+    <div class="container mt-5">
+      {% if user.is_authenticated %}
+        <h3>Ei <b>{{ user.first_name }}</b>, escolha um produto abaixo:</h3>
+      {% else %}
+        <h3>Crie sua conta e conheça nossos produtos</h3>
+      {% endif %}
+
+          <div class="row mt-5">
+            <div class="col">
+                <div class="card text-center">
+                    <div class="card-body">
+                      <h5 class="card-title">Cadastro dos moradores</h5>
+                      <p class="card-text">Solução completa de cadastro e gestão dos moradores ativos!</p>
+                      <a href="{% url 'resident_index' %}" class="btn btn-primary">acessar</a>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col">
+              <div class="card text-center">
+                  <div class="card-body">
+                    <h5 class="card-title">Gestão de entregas</h5>
+                    <p class="card-text">Organize e notifique as entregas aos moradores.</p>
+                    <a href="{% url 'delivery_home' %}" class="btn btn-primary">acessar</a>
+                  </div>
+                </div>
+            </div>
+
+
+
+            <div class="row mt-5">
+
+              <div class="col">
+                <div class="card text-center">
+                    <div class="card-body">
+                      <h5 class="card-title">Gestão de visitas e eventos</h5>
+                      <p class="card-text">Aprove visitas e organize seus eventos de forma mais simples!</p>
+                      <a href="{% url 'guests_home' %}" class="btn btn-primary">acessar</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+  </div>
+{% endblock %}
