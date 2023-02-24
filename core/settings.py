@@ -1,7 +1,7 @@
 import os 
 from pathlib import Path
-from decouple import config
 from dj_database_url import parse as dburl
+from decouple import config
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,7 +10,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1','.vercel.app']
+ALLOWED_HOSTS = ['localhost','127.0.0.1', '.vercel.app']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -123,23 +123,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "{% url , 'delivery_home' %}"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-EMAIL_HOST = 'smtp.hostinger.com'
-EMAIL_PORT = 465
-EMAIL_HOST_USER = 'importados@efprodutosdigitais.com.br'
-DEFAULT_FROM_EMAIL= 'importados@efprodutosdigitais.com.br'
-EMAIL_HOST_PASSWORD = 'Pzq@515027'
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = True
-
-
-#CELERY
-# CELERY_RESULTS_BACKEND = 'django-db'
-
-BROKER_URL = 'amqp://myuser:mypassword@localhost:5672/myvhost'
-
-CELERY_BROKER_URL = 'redis://localhost:6379'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TASK_SERIALIZER = 'json'

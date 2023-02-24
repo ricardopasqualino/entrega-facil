@@ -1,4 +1,3 @@
-
 from django.contrib import admin # Importa o modulo de login do Django
 from django.urls import include, path # Importa as funções do path e include
 
@@ -11,7 +10,6 @@ from delivery.views import (
     Register,
 )
 
-
 urlpatterns = [
 
     # My apps
@@ -20,6 +18,7 @@ urlpatterns = [
     path('',include('guests.urls')),
     path('',include('parking.urls')),
     path('',include('resident.urls')),
+
 
     # Authentication
     path('admin/', admin.site.urls, name='Admin'),
