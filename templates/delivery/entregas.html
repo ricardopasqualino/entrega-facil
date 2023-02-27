@@ -8,25 +8,42 @@
   </div>
 
   <div class="col">
+    <form class="form-inline my-2 my-lg-0">
+      <input  class="form-control mr-sm-5" 
+              type="search" placeholder="nº casa/apto" 
+              aria-label="Search"
+              autocomplete="false"
+              maxlength="3"
+              >
+      
+              <a href="{% url 'f_morador' %}"><button class="btn btn-outline-primary" type="submit">Buscar</button></a>
+    </form>
+  </div>
+  
+  <div class="col">
     <a class="btn btn-primary float-right" href="{% url 'Nova' %}">Nova</a>
+  </div>
+  
+</div>
 
-    <div class="dropdown mr-3 float-right">
+   <!-- <div class="dropdown mr-3 float-right">
       <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         Filtrar Entregas
       </button>
       <ul class="dropdown-menu">
         <li>
-          <a href="#"><button class="dropdown-item" type="button">Hoje</button></a>
+          <a href=""><button class="dropdown-item" type="button">Hoje</button></a>
         </li>
         <li>
           <a href=""><button class="dropdown-item" type="button">Pendentes</button></a>
         </li>
         <li>
-          <a href="#"><button class="dropdown-item" type="button">Atrasadas</button></a>
+          <a href=""><button class="dropdown-item" type="button">Entregues</button></a>
         </li>
       </ul>
-  </div>
-</div>
+    </div>  -->
+
+
 <div class="row">
   <div class="col">
     <table class="table mt-3">

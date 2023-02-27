@@ -1,7 +1,10 @@
+# import das bibliotecas
 from django.db import models
 from django.contrib.auth.models import User
 
-from resident.models import Morador, Moradia
+
+# import dos arquivos
+from resident.models import Moradia
 
 
 class Box(models.Model):
