@@ -24,7 +24,6 @@ INSTALLED_APPS = [
     'delivery',
     'parking',
     'guests',
-    'django_filters',
 ]
 
 MIDDLEWARE = [
