@@ -7,7 +7,6 @@ from django.contrib.auth import login, logout, authenticate
 # imports dos arquivos
 from .form import NovaForm, DeliveryForm
 from .models import Delivery
-from .filters import FiltroMorador
 
 
 @login_required
@@ -40,13 +39,6 @@ def Entrega_nova(request):
         return redirect('Entregas')
     else:
         return redirect('Erro')
-
-
-
-def f_morador(request):
-    moradia_list= FiltroMorador(request.GET, queryset=Delivery.objects.all())
-    return render(request, 'delivery/filtro_morador.html', {'moradia_list':moradia_list})
-
     
 
 @login_required
@@ -129,9 +121,3 @@ def Morador_novo(request):
 @login_required
 def Erro(request):
     return render(request, 'erro.html')
-
-
-def Pendentes(request):
-    return render(request, 'delivery/entregas_pendentes.html')
-
-
