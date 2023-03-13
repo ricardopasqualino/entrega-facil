@@ -11,6 +11,7 @@ from delivery.views import (
     Atualizar_entrega,
     Erro,
     f_morador,
+    Entregas_pendentes,
 )
 
 urlpatterns = [
@@ -19,6 +20,7 @@ urlpatterns = [
     path('morador/', Morador, name='Morador'),
     path('nova/', Nova , name='Nova'),
     path('entregas/', Entregas , name='Entregas'),
+    path('entregas-pendentes/', Entregas_pendentes , name='entregas_pendentes'),
     path('entregas/morador/', f_morador , name='f_morador'),
     path('entrega-nova/', Entrega_nova , name='Entrega_nova'),
     path('atualizar-entrega-<id>/', Atualizar_entrega , name='Atualizar_entrega'),

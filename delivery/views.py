@@ -52,9 +52,16 @@ def f_morador(request):
 @login_required
 def Entregas(request):
     entregas = Delivery.objects.order_by('-data_entrada').all()
-    ent_pen = Delivery.objects.filter(status=1)
+    ent_pen = Delivery.objects.filter(status=0)
     data = {'entregas': entregas, 'ent_pen':ent_pen}
     return render(request, 'delivery/entregas.html', data)
+
+
+@login_required
+def Entregas_pendentes(request):
+    ent_pen = Delivery.objects.filter(status=0)
+    data = { 'ent_pen':ent_pen}
+    return render(request, 'delivery/entregas_pendentes.html', data)
     
 
 @login_required
@@ -122,4 +129,9 @@ def Morador_novo(request):
 @login_required
 def Erro(request):
     return render(request, 'erro.html')
+
+
+def Pendentes(request):
+    return render(request, 'delivery/entregas_pendentes.html')
+
 
